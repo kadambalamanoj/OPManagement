@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <title>View Assigned Patients</title>
+</h:head>
+<body>
+
+<ui:include src="/doctorhome.xhtml" />
+
+<h3 align='center'><u>View Assigned Patients</u></h3>
+
+<center>
+    <h:dataTable value="#{doctorPatientBean.patientList}" var="pat" border="2">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{pat.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            #{pat.name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Age</f:facet>
+            #{pat.age}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Gender</f:facet>
+            #{pat.gender}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Height</f:facet>
+            #{pat.height}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Weight</f:facet>
+            #{pat.weight}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Medications</f:facet>
+            #{pat.medications}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Contact</f:facet>
+            #{pat.contactno}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Emergency Contact</f:facet>
+            #{pat.emergencyContact}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Address</f:facet>
+            #{pat.address}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{pat.email}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Image</f:facet>
+            <h:graphicImage value="#{pat.image}" width="100" height="100" />
+        </h:column>
+    </h:dataTable>
+</center>
+
+</body> 
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <title>Receptionist Registration</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head> 
+<body> 
+
+<ui:include src="/areceptionisthome.xhtml" />
+<h3 align='center'><u>Receptionist Registration</u></h3>
+
+<center>
+<h:form enctype="multipart/form-data">
+       <h:messages globalOnly="true" style="color:red" />
+    <h:panelGrid columns="3" cellpadding="5">
+
+        <h:outputLabel for="id" value="Enter ID"/>
+        <h:inputText id="id" required="true" requiredMessage="Enter ID" value="#{receptionistBean.id}" />
+        <h:message for="id" style="color:red"/>
+
+        <h:outputLabel for="name" value="Enter Name"/>
+        <h:inputText id="name" required="true" requiredMessage="Enter Name" value="#{receptionistBean.name}"/>
+        <h:message for="name" style="color:red"/>
+
+        <h:outputLabel for="gender" value="Select Gender"/>
+        <h:selectOneRadio id="gender" required="true" requiredMessage="Select Gender" value="#{receptionistBean.gender}">
+            <f:selectItem itemLabel="Male" itemValue="MALE"/>
+            <f:selectItem itemLabel="Female" itemValue="FEMALE"/>
+            <f:selectItem itemLabel="Others" itemValue="OTHERS"/>
+        </h:selectOneRadio>
+        <h:message for="gender" style="color:red"/>
+
+        <h:outputLabel for="email" value="Enter Email"/>
+        <h:inputText id="email" required="true" requiredMessage="Enter Email" value="#{receptionistBean.email}"/>
+        <h:message for="email" style="color:red"/>
+
+        <h:outputLabel for="password" value="Enter Password"/>
+        <h:inputSecret id="password" required="true" requiredMessage="Enter Password" value="#{receptionistBean.password}"/>
+        <h:message for="password" style="color:red"/>
+
+        <h:outputLabel for="contact" value="Enter Contact"/>
+        <h:inputText id="contact" required="true" requiredMessage="Enter Contact" validatorMessage="Contact No must contain 10 digits only" value="#{receptionistBean.contactno}">
+            <f:validateRegex pattern="[6789][0-9]{9}"/>
+        </h:inputText>
+        <h:message for="contact" style="color:red"/>
+
+        <h:outputLabel for="imageFile" value="Upload Image"/>
+        <h:inputFile id="imageFile" value="#{receptionistBean.imageFile}" required="true" requiredMessage="Upload Image"/>
+        <h:message for="imageFile" style="color:red"/>
+
+        <h:outputLabel for="add"/>
+        <h:commandButton id="add" class="button" value="Submit" action="#{receptionistBean.addReceptionist()}"/>
+        <h:message for="add"/>
+
+    </h:panelGrid>
+
+</h:form>
+</center>
+
+</body> 
+</html>

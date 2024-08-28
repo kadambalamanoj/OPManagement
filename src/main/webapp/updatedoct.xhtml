@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+ <title>Update Doctor</title>
+   <h:outputStylesheet library="css" name="style.css"/>
+</h:head> 
+<body> 
+  <ui:include src="/adoctorhome.xhtml" />
+<h3 align='center'><u>Update Doctor</u></h3>
+<center>
+<h:form enctype="multipart/form-data">
+
+    <h:panelGrid columns="3" cellpadding="5">
+
+        <h:outputLabel for="id" value="Enter ID"/>
+        <h:inputText id="id" required="true" requiredMessage="Enter ID" value="#{doctorBean.id}" />
+        <h:message for="id" style="color:red"/>
+
+        <h:outputLabel for="name" value="Enter Name"/>
+        <h:inputText id="name" required="true" requiredMessage="Enter Name" value="#{doctorBean.name}"/>
+        <h:message for="name" style="color:red"/>
+
+
+        <h:outputLabel for="specialization" value="Select Specialization"/>
+        <h:selectOneMenu id="specialization" required="true" requiredMessage="Select Specialization" value="#{doctorBean.specialization}">
+            <f:selectItem itemLabel="--Select--" itemValue=""/>
+            <f:selectItem itemLabel="General Surgery" itemValue="GENERAL_SURGERY"/>
+            <f:selectItem itemLabel="Cardiology" itemValue="CARDIOLOGY"/>
+            <f:selectItem itemLabel="Neurology" itemValue="NEUROLOGY"/>
+            <f:selectItem itemLabel="Orthopedics" itemValue="ORTHOPEDICS"/>
+            <f:selectItem itemLabel="Pediatrics" itemValue="PEDIATRICS"/>
+            <f:selectItem itemLabel="Dermatology" itemValue="DERMATOLOGY"/>
+            <f:selectItem itemLabel="Ophthalmology" itemValue="OPHTHALMOLOGY"/>
+            <f:selectItem itemLabel="Psychiatry" itemValue="PSYCHIATRY"/>
+            <f:selectItem itemLabel="Radiology" itemValue="RADIOLOGY"/>
+            <f:selectItem itemLabel="dentist" itemValue="DENTIST"/>
+            
+        </h:selectOneMenu>
+        <h:message for="specialization" style="color:red"/>
+
+        <h:outputLabel for="experience" value="Enter Years of Experience"/>
+        <h:inputText id="experience" required="true" requiredMessage="Enter Years of Experience" validatorMessage="Experience must be at least 1 year" value="#{doctorBean.experience}">
+            <f:validateDoubleRange minimum="1.0"/>
+        </h:inputText>
+        <h:message for="experience" style="color:red"/>
+
+        <h:outputLabel for="email" value="Enter Email"/>
+        <h:inputText id="email" required="true" requiredMessage="Enter Email" value="#{doctorBean.email}"/>
+        <h:message for="email" style="color:red"/>
+
+        <h:outputLabel for="password" value="Enter Password"/>
+        <h:inputSecret id="password" required="true" requiredMessage="Enter Password" value="#{doctorBean.password}"/>
+        <h:message for="password" style="color:red"/>
+
+        <h:outputLabel for="contact" value="Enter Contact"/>
+        <h:inputText id="contact" required="true" requiredMessage="Enter Contact" validatorMessage="Contact No must contain 10 digits only" value="#{doctorBean.contactno}">
+            <f:validateRegex pattern="[6789][0-9]{9}"/>
+        </h:inputText>
+        <h:message for="contact" style="color:red"/>
+
+        <h:outputLabel for="imageFile" value="Upload Image"/>
+        <h:inputFile id="imageFile" value="#{doctorBean.imageFile}" required="true" requiredMessage="Upload Image"/>
+        <h:message for="imageFile" style="color:red"/>
+
+        <h:outputLabel for="add"/>
+        <h:commandButton id="add" class="button" value="Submit" action="#{doctorBean.update()}"/>
+        <h:message for="add"/>
+
+    </h:panelGrid>
+
+</h:form>
+</center>
+</body> 
+</html>

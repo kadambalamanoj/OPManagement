@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="resources/css/style.css" />
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border: none;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="md">  
+        <div class="nb">
+            <h2 align="center"><b>OP Health Clinic Management System</b></h2>
+        </div>
+        <br />
+        <br />
+        <button onclick="window.location.href='pic.jsf'"><i class="fas fa-home"></i> Home</button>
+        <button onclick="window.location.href='contact.jsf'"><i class="fas fa-envelope"></i> Contact Us</button>
+        <button onclick="window.location.href='about.jsf'"><i class="fas fa-info-circle"></i> About Us</button>
+        
+        <!-- Dropdown Menu for Login -->
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+            <div class="dropdown-content">
+                <button onclick="window.location.href='adminlogin.jsf'"><i class="fas fa-user-lock"></i> Admin Login</button>
+                <button onclick="window.location.href='doctorlogin.jsf'"><i class="fas fa-user-md"></i> Doctor Login</button>
+                <button onclick="window.location.href='patientlogin.jsf'"><i class="fas fa-user"></i> Patient Login</button>
+            </div>
+        </div>
+        <center>
+            <p style="margin-top: 20px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929563.7805109564!2d78.11904967839523!3d15.88471114428908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3546f8ae93d47f%3A0x33d1bbbe95adcd83!2sAndhra%20Pradesh!5e0!3m2!1sen!2sin!4v1721738317986!5m2!1sen!2sin" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </p>
+        </center>
+        <div class="m">
+            <h4 align="center"><b>Copyright 2024 by Kadambala Manoj</b></h4>
+        </div>  
+    </div>
+</body>
+</html>

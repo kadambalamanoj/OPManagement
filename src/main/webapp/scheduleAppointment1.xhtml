@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Schedule Appointment</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <!-- Include PrimeFaces CSS and JS resources -->
+    <h:outputScript library="primefaces" name="primefaces.js" target="head"/>
+    <h:outputStylesheet library="primefaces" name="primefaces.css"/>
+</h:head>
+<body>
+
+<ui:include src="/receptionisthome.xhtml" />
+<h3 align='center'><u>Schedule Appointment</u></h3>
+
+<center>
+<h:form id="appointmentForm">
+    <h:messages globalOnly="true" style="color:red" />
+    <h:panelGrid columns="3" cellpadding="5">
+        <h:outputLabel for="patientId" value="Patient ID:" />
+        <h:inputText id="patientId" value="#{appointmentBean.pid}" required="true" requiredMessage="Enter Patient ID"/>
+        <h:message for="patientId" style="color:red"/>
+
+        <h:outputLabel for="doctorId" value="Doctor ID:" />
+        <h:inputText id="doctorId" value="#{appointmentBean.did}" required="true" requiredMessage="Enter Doctor ID"/>
+        <h:message for="doctorId" style="color:red"/>
+
+        <h:outputLabel for="date" value="Appointment Date:" />
+        <h:inputText id="dateInput" value="#{appointmentBean.date}" required="true">
+            <f:convertDateTime pattern="dd-MM-y"/>
+        </h:inputText>
+        <h:message for="dateInput" style="color:red"/>
+
+        <h:outputLabel for="add"/>
+        <h:commandButton id="add" class="button" value="Submit" action="#{appointmentBean.addAppointment()}"/>
+        <h:message for="add"/>
+    </h:panelGrid>
+</h:form>
+</center>
+
+</body>
+</html>

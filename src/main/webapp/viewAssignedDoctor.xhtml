@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>View Assigned Doctor</title>
+</h:head>
+<body>
+
+<ui:include src="/patienthome.xhtml" />
+
+<h3 align='center'><u>View Assigned Doctor</u></h3>
+
+<center>
+    <h:dataTable value="#{patientDoctorBean.assignedDoctor}" var="doc" border="2">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{doc.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            #{doc.name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Gender</f:facet>
+            #{doc.gender}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Specialization</f:facet>
+            #{doc.specialization}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Years of Experience</f:facet>
+            #{doc.experience}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{doc.email}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Contact</f:facet>
+            #{doc.contactno}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Image</f:facet>
+            <h:graphicImage value="#{doc.image}" width="100" height="100" />
+        </h:column>
+    </h:dataTable>
+</center>
+
+</body>
+</html>

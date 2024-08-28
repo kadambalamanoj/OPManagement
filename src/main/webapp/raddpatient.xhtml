@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <title>Patient Registration</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head> 
+<body> 
+
+<ui:include src="/rpatienthome.xhtml" />
+<h3 align='center'><u>Patient Registration</u></h3>
+
+<center>
+<h:form enctype="multipart/form-data">
+    <h:messages globalOnly="true" style="color:red" />
+    <h:panelGrid columns="3" cellpadding="5">
+        <h:outputLabel for="name" value="Name:" />
+        <h:inputText id="name" value="#{patientBean.name}" required="true" requiredMessage="Enter Name"/>
+        <h:message for="name" style="color:red"/>
+
+        <h:outputLabel for="age" value="Age:" />
+        <h:inputText id="age" value="#{patientBean.age}" required="true" requiredMessage="Enter Age" validatorMessage="Age must be a positive number">
+            <f:validateDoubleRange minimum="0.0"/>
+        </h:inputText>
+        <h:message for="age" style="color:red"/>
+
+        <h:outputLabel for="gender" value="Gender:" />
+        <h:selectOneMenu id="gender" value="#{patientBean.gender}" required="true" requiredMessage="Select Gender">
+            <f:selectItem itemValue="" itemLabel="--Select--" />
+            <f:selectItem itemValue="Male" itemLabel="Male" />
+            <f:selectItem itemValue="Female" itemLabel="Female" />
+            <f:selectItem itemValue="Other" itemLabel="Other" />
+        </h:selectOneMenu>
+        <h:message for="gender" style="color:red"/>
+
+        <h:outputLabel for="height" value="Height (cm):" />
+        <h:inputText id="height" value="#{patientBean.height}" required="true" requiredMessage="Enter Height"/>
+        <h:message for="height" style="color:red"/>
+
+        <h:outputLabel for="weight" value="Weight (kg):" />
+        <h:inputText id="weight" value="#{patientBean.weight}" required="true" requiredMessage="Enter Weight"/>
+        <h:message for="weight" style="color:red"/>
+
+        <h:outputLabel for="medications" value="Taking any medications:" />
+        <h:selectOneRadio id="medications" value="#{patientBean.medications}" required="true" requiredMessage="Select an option">
+            <f:selectItem itemValue="Yes" itemLabel="Yes" />
+            <f:selectItem itemValue="No" itemLabel="No" />
+        </h:selectOneRadio>
+        <h:message for="medications" style="color:red"/>
+
+        <h:outputLabel for="email" value="Email:" />
+        <h:inputText id="email" value="#{patientBean.email}" required="true" requiredMessage="Enter Email">
+            <f:validateRegex pattern="^[\w\-]+@([\w\-]+\.)+[\w\-]+$" />
+        </h:inputText>
+        <h:message for="email" style="color:red"/>
+
+        <h:outputLabel for="address" value="Address:" />
+        <h:inputTextarea id="address" value="#{patientBean.address}" required="true" requiredMessage="Enter Address"/>
+        <h:message for="address" style="color:red"/>
+
+        <h:outputLabel for="contactno" value="Contact Number:" />
+        <h:inputText id="contactno" value="#{patientBean.contactno}" required="true" requiredMessage="Enter Contact Number"/>
+        <h:message for="contactno" style="color:red"/>
+
+        <h:outputLabel for="emergencyContact" value="Emergency Contact Number:" />
+        <h:inputText id="emergencyContact" value="#{patientBean.emergencyContact}" required="true" requiredMessage="Enter Emergency Contact Number"/>
+        <h:message for="emergencyContact" style="color:red"/>
+
+        <h:outputLabel for="password" value="Password:" />
+        <h:inputSecret id="password" value="#{patientBean.password}" required="true" requiredMessage="Enter Password"/>
+        <h:message for="password" style="color:red"/>
+
+        <h:outputLabel for="imageFile" value="Profile Image:" />
+        <h:inputFile id="imageFile" value="#{patientBean.imageFile}" />
+        
+        <h:outputLabel for="add"/>
+        <h:commandButton id="add" class="button" value="Submit" action="#{patientBean.addPatient()}"/>
+        <h:message for="add"/>
+    </h:panelGrid>
+</h:form>
+</center>
+</body> 
+</html>
